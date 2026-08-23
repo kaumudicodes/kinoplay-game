@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>KinoPlay</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- ================================================= -->
+    <!-- ================= LOGO SCREEN =================== -->
+    <!-- ================================================= -->
+
+    <div id="splash">
+
+        <img
+            src="assets/logo.png"
+            alt="KinoPlay Logo"
+        >
+
+    </div>
+
+
+
+    <!-- ================================================= -->
+    <!-- ================= HOME PAGE ===================== -->
+    <!-- ================================================= -->
+
+    <div id="homePage">
+
+        <h1>KinoPlay</h1>
+
+        <h2>Select Your Game</h2>
+
+
+        <div class="games">
+
+
+            <div
+                class="gameBox"
+                onclick="selectGame(this, 'movie')"
+            >
+                Guess the Movie
+            </div>
+
+
+            <div
+                class="gameBox"
+                onclick="selectGame(this, 'song')"
+            >
+                Guess the Song
+            </div>
+
+
+            <div
+                class="gameBox"
+                onclick="selectGame(this, 'word')"
+            >
+                Guess the Word
+            </div>
+
+
+            <div
+                class="gameBox"
+                onclick="selectGame(this, 'character')"
+            >
+                Guess the Character
+            </div>
+
+
+        </div>
+
+
+        <button
+            id="nextButton"
+            onclick="goNext()"
+        >
+            Next
+        </button>
+
+
+    </div>
+
+
+
+    <!-- ================================================= -->
+    <!-- ================= CATEGORY PAGE ================= -->
+    <!-- ================================================= -->
+
+    <div id="categoryPage">
+
+        <h1>KinoPlay</h1>
+
+        <h2 id="categoryTitle">
+            Select Category
+        </h2>
+
+
+        <div id="categories"></div>
+
+
+        <button
+            id="letsPlayButton"
+            onclick="showTimer()"
+        >
+            Let's Play
+        </button>
+
+
+    </div>
+
+
+
+    <!-- ================================================= -->
+    <!-- ================= TIMER PAGE ==================== -->
+    <!-- ================================================= -->
+
+    <div id="timerPage">
+
+        <h1>KinoPlay</h1>
+
+        <h2>Set Time</h2>
+
+
+        <div class="timerBox">
+
+
+            <button
+                onclick="changeTime(-30)"
+            >
+                −
+            </button>
+
+
+            <span id="time">
+                02:00
+            </span>
+
+
+            <button
+                onclick="changeTime(30)"
+            >
+                +
+            </button>
+
+
+        </div>
+
+
+        <button
+            id="startButton"
+            onclick="showRules()"
+        >
+            Start Game
+        </button>
+
+
+    </div>
+
+
+
+    <!-- ================================================= -->
+    <!-- ================= RULES PAGE ==================== -->
+    <!-- ================================================= -->
+
+    <div id="rulesPage">
+
+
+        <h1>How to Play</h1>
+
+
+        <div class="rules">
+
+
+            <!-- RULE 1 -->
+
+            <div class="ruleBox">
+
+                <span>1</span>
+
+                <p>
+                    Hold the phone in front of you.
+                    Let others act or describe.
+                </p>
+
+            </div>
+
+
+            <!-- RULE 2 -->
+
+            <div class="ruleBox">
+
+                <span>2</span>
+
+                <p>
+                    If you guessed it right,
+                    they click on Correct.
+                </p>
+
+            </div>
+
+
+            <!-- RULE 3 -->
+
+            <div class="ruleBox">
+
+                <span>3</span>
+
+                <p>
+                    If not, they click on Incorrect.
+                </p>
+
+            </div>
+
+
+            <!--
+                SONG RULE 4 WILL BE ADDED
+                AUTOMATICALLY BY JAVASCRIPT
+                ONLY WHEN SONG IS SELECTED.
+            -->
+
+
+        </div>
+
+
+        <button
+            id="rulesStartButton"
+            onclick="startGame()"
+        >
+            Start Game
+        </button>
+
+
+    </div>
+
+
+
+    <!-- ================================================= -->
+    <!-- ================= GAME PAGE ===================== -->
+    <!-- ================================================= -->
+
+    <div id="gamePage">
+
+
+        <h1>KinoPlay</h1>
+
+
+        <!-- ================= GAME TIMER ================= -->
+
+        <div class="gameTimerBox">
+
+
+            <span id="gameTimer">
+                02:00
+            </span>
+
+
+            <button
+                id="pauseButton"
+                onclick="togglePause()"
+                aria-label="Pause or Resume"
+            >
+                ⏸
+            </button>
+
+
+        </div>
+
+
+
+        <!-- ================================================= -->
+        <!-- ================= CURRENT ITEM ================== -->
+        <!-- ================================================= -->
+
+        <div id="gameItem">
+            Loading...
+        </div>
+
+
+
+        <!-- ================================================= -->
+        <!-- ================= SONG WORD ===================== -->
+        <!-- ================================================= -->
+
+        <!--
+            This box is hidden normally.
+
+            For songs, JavaScript will show ONE random
+            word from:
+
+            Na
+            Ta
+            Ba
+            Ma
+            Ra
+            Ga
+
+            Example:
+
+            Naatu Naatu
+
+                 Na
+
+        -->
+
+        <div id="songHint"></div>
+
+
+
+        <!-- ================================================= -->
+        <!-- ================= GAME BUTTONS ================== -->
+        <!-- ================================================= -->
+
+        <div class="gameButtons">
+
+
+            <!-- INCORRECT -->
+
+            <button
+                id="incorrectButton"
+                onclick="incorrectAnswer()"
+            >
+                Incorrect
+            </button>
+
+
+            <!-- SKIP -->
+
+            <button
+                id="skipButton"
+                onclick="skipItem()"
+            >
+                Skip
+            </button>
+
+
+            <!-- CORRECT -->
+
+            <button
+                id="correctButton"
+                onclick="correctAnswer()"
+            >
+                Correct
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ================================================= -->
+    <!-- ================= JAVASCRIPT ==================== -->
+    <!-- ================================================= -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>

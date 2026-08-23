@@ -1,0 +1,636 @@
+/* ================= GENERAL ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #071A3D;
+    color: white;
+}
+
+
+/* ================= LOGO SCREEN ================= */
+
+#splash {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #071A3D;
+}
+
+#splash img {
+    width: 220px;
+}
+
+
+/* ================= HOME PAGE ================= */
+
+#homePage {
+    display: none;
+    min-height: 100vh;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+#homePage h1,
+#categoryPage h1,
+#timerPage h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+h2 {
+    margin-bottom: 30px;
+}
+
+
+/* ================= GAME BOXES ================= */
+
+.games {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 700px;
+    margin: auto;
+}
+
+.gameBox,
+.categoryBox {
+    background-color: #102B5C;
+    padding: 50px 20px;
+    border-radius: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.gameBox:hover,
+.categoryBox:hover {
+    transform: scale(1.03);
+}
+
+
+/* ================= SELECTED BOX ================= */
+
+.gameBox.selected,
+.categoryBox.selected {
+    border: 3px solid #8FF0A4;
+}
+
+
+/* ================= NEXT BUTTON ================= */
+
+#nextButton {
+    margin: 40px auto 0;
+    padding: 15px 55px;
+    border: none;
+    border-radius: 12px;
+    background-color: white;
+    color: #55C878;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+/* ================= CATEGORY PAGE ================= */
+
+#categoryPage {
+    display: none;
+    min-height: 100vh;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+#categories {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 700px;
+    margin: auto;
+}
+
+
+/* ================= LET'S PLAY ================= */
+
+#letsPlayButton {
+    display: none;
+    margin: 40px auto 0;
+    padding: 15px 45px;
+    border: none;
+    border-radius: 12px;
+    background-color: white;
+    color: #55C878;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+/* ================= TIMER SETUP PAGE ================= */
+
+#timerPage {
+    display: none;
+    min-height: 100vh;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+#timerPage h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+
+/* ================= SET TIME BOX ================= */
+
+.timerBox {
+    width: 300px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #102B5C;
+    border-radius: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.timerBox button {
+    width: 50px;
+    height: 50px;
+
+    border: none;
+    border-radius: 10px;
+
+    background-color: white;
+    color: #55C878;
+
+    font-size: 30px;
+    cursor: pointer;
+}
+
+#time {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+
+/* ================= START GAME BUTTON ================= */
+
+#startButton,
+#rulesStartButton {
+    padding: 15px 45px;
+
+    border: none;
+    border-radius: 12px;
+
+    background-color: white;
+    color: #55C878;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+/* ================= RULES PAGE ================= */
+
+#rulesPage {
+    display: none;
+    min-height: 100vh;
+
+    text-align: center;
+
+    padding: 40px 20px;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#rulesPage h1 {
+    font-size: 40px;
+    margin-bottom: 35px;
+}
+
+.rules {
+    width: 100%;
+    max-width: 600px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ruleBox {
+    background-color: #102B5C;
+
+    border-radius: 20px;
+    padding: 25px;
+
+    display: flex;
+    align-items: center;
+
+    text-align: left;
+}
+
+.ruleBox span {
+    min-width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    background-color: #8FF0A4;
+    color: #071A3D;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    margin-right: 20px;
+}
+
+.ruleBox p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+
+/* ================================================= */
+/* ================= GAME PAGE ===================== */
+/* ================================================= */
+
+#gamePage {
+    display: none;
+
+    min-height: 100vh;
+    width: 100%;
+
+    text-align: center;
+
+    padding: 30px 20px;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* ================= GAME TITLE ================= */
+
+#gamePage h1 {
+    font-size: 40px;
+    margin-bottom: 25px;
+}
+
+
+/* ================= GAME TIMER ================= */
+
+.gameTimerBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-bottom: 30px;
+}
+
+#gameTimer {
+    font-size: 35px;
+    font-weight: bold;
+
+    min-width: 110px;
+}
+
+
+/* ================= PAUSE BUTTON ================= */
+
+#pauseButton {
+    width: 45px;
+    height: 45px;
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: white;
+    color: #071A3D;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: 0.2s;
+}
+
+#pauseButton:hover {
+    transform: scale(1.08);
+}
+
+
+/* ================= GAME ITEM ================= */
+
+#gameItem {
+    width: 80%;
+    max-width: 650px;
+
+    min-height: 130px;
+
+    background-color: #102B5C;
+
+    border-radius: 20px;
+
+    padding: 35px 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 32px;
+    font-weight: bold;
+
+    text-align: center;
+
+    margin-bottom: 20px;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ================================================= */
+/* ================= SONG WORD BOX ================= */
+/* ================================================= */
+
+/*
+   This is ONLY shown for songs.
+
+   It appears:
+   Song Name
+        ↓
+   [  NA  ]
+        ↓
+   Incorrect | Skip | Correct
+*/
+
+#songHint {
+    display: none;
+
+    width: 180px;
+    min-height: 70px;
+
+    background-color: #102B5C;
+
+    border: 2px solid #55C878;
+
+    border-radius: 15px;
+
+    margin: 0 auto 30px;
+
+    padding: 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 28px;
+    font-weight: bold;
+
+    color: white;
+
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ================= GAME BUTTONS ================= */
+
+.gameButtons {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 15px;
+
+    width: 100%;
+}
+
+.gameButtons button {
+    min-width: 130px;
+
+    padding: 15px 25px;
+
+    border: none;
+    border-radius: 12px;
+
+    color: white;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.gameButtons button:hover {
+    transform: scale(1.05);
+}
+
+
+/* ================= INCORRECT ================= */
+
+#incorrectButton {
+    background-color: #E53935;
+}
+
+
+/* ================= SKIP ================= */
+
+#skipButton {
+    background-color: #F2C300;
+    color: #071A3D;
+}
+
+
+/* ================= CORRECT ================= */
+
+#correctButton {
+    background-color: #35B85A;
+}
+
+
+/* ================================================= */
+/* ================= FINAL SCORE ==================== */
+/* ================================================= */
+
+.gameOver {
+    text-align: center;
+}
+
+.gameOver h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.gameOver h2 {
+    margin-bottom: 10px;
+}
+
+.finalScore {
+    font-size: 70px;
+    font-weight: bold;
+
+    margin: 20px 0;
+
+    color: #8FF0A4;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 600px) {
+
+    .games,
+    #categories {
+        grid-template-columns: 1fr;
+    }
+
+    #homePage h1,
+    #categoryPage h1,
+    #timerPage h1,
+    #rulesPage h1,
+    #gamePage h1 {
+        font-size: 32px;
+    }
+
+    .gameBox,
+    .categoryBox {
+        padding: 35px 15px;
+    }
+
+    #gameItem {
+        width: 95%;
+        min-height: 120px;
+
+        font-size: 25px;
+
+        padding: 30px 15px;
+    }
+
+    /* Song word box on mobile */
+
+    #songHint {
+        width: 150px;
+        min-height: 60px;
+
+        font-size: 24px;
+
+        margin-bottom: 25px;
+    }
+
+    .gameButtons {
+        gap: 8px;
+    }
+
+    .gameButtons button {
+        min-width: 0;
+        flex: 1;
+
+        padding: 14px 8px;
+
+        font-size: 15px;
+    }
+
+    #gameTimer {
+        font-size: 30px;
+    }
+
+    #pauseButton {
+        width: 40px;
+        height: 40px;
+    }
+}
+/* ================================================= */
+/* ============== GAME OVER BUTTONS ================ */
+/* ================================================= */
+
+.gameOverButtons {
+    display: flex;
+    flex-direction: column;
+
+    gap: 15px;
+
+    width: 280px;
+
+    margin: 35px auto 0;
+}
+
+
+/* ================= PLAY AGAIN ================= */
+
+#playAgainButton {
+    width: 100%;
+
+    padding: 15px 25px;
+
+    border: none;
+    border-radius: 12px;
+
+    background-color: #35B85A;
+    color: white;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+#playAgainButton:hover {
+    transform: scale(1.04);
+}
+
+
+/* ================= HOME ================= */
+
+#homeButton {
+    width: 100%;
+
+    padding: 15px 25px;
+
+    border: none;
+    border-radius: 12px;
+
+    background-color: #102B5C;
+    color: white;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+#homeButton:hover {
+    transform: scale(1.04);
+}
